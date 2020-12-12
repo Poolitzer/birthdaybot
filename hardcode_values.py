@@ -1,0 +1,9 @@
+import datetime
+
+TELEGRAM_TOKEN = "BOT TOKEN"
+TELEGRAPH_TOKEN = "TELEGRAPH TOKEN"
+GROUP_ID = -1001341546333
+GROUP_NAME = "@TGChatDE"
+ARTICLE_ID = "test-12-12-146"
+TELEGRAPH_TITLE = "Agelist - Telegram Chat Group"
+TIME = datetime.time(17, 35)
