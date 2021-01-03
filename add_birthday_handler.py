@@ -60,6 +60,7 @@ def after_name(update: Update, context: CallbackContext):
 def link(update: Update, context: CallbackContext):
     query = update.callback_query
     buttons = _create_inlinekeyboard()
+    query.answer()
     if query.data == "y":
         context.user_data["link"] = update.effective_user.link
         query.edit_message_text(LINK_APPROVED + BIRTHDAY_SHOW, reply_markup=buttons)
@@ -81,8 +82,8 @@ def _calculate_age2(birthdate):
 
 
 def show_birthday(update: Update, context: CallbackContext):
-    update.effective_chat.send_action(ChatAction.TYPING)
     query = update.callback_query
+    query.answer()
     user_data = context.user_data
     dewit = False
     if query.data == "y":
@@ -95,7 +96,6 @@ def show_birthday(update: Update, context: CallbackContext):
     update_page()
     set_birthday(context.job_queue)
     query.edit_message_text(FINAL)
-    query.answer()
     # -1 is ending the conversationhandler
     return -1
 
